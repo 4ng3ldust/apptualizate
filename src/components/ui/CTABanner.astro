@@ -1,0 +1,28 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  ctaText?: string;
+  ctaHref?: string;
+}
+
+const {
+  title = "Ready to Transform Your Operations?",
+  subtitle = "Start with a diagnostic. Understand your reality. Build your roadmap.",
+  ctaText = "Start Your Diagnostic",
+  ctaHref = "/contact",
+} = Astro.props;
+---
+
+<section class="bg-primary-900 py-20">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-white">{title}</h2>
+    <p class="mt-4 text-lg text-neutral-300">{subtitle}</p>
+    <a
+      href={ctaHref}
+      class="mt-8 inline-flex items-center px-8 py-4 rounded-xl bg-accent-500 text-primary-900 font-semibold text-lg hover:bg-accent-400 transition-colors"
+    >
+      {ctaText} →
+    </a>
+  </div>
+</section>

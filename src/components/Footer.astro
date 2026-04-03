@@ -1,0 +1,76 @@
+---
+const currentYear = new Date().getFullYear();
+
+const services = [
+  { href: '/services/diagnostic', label: 'Operational Diagnostic' },
+  { href: '/services/process-design', label: 'Process Design' },
+  { href: '/services/digitalization', label: 'Digitalization' },
+  { href: '/services/intelligence', label: 'Business Intelligence' },
+  { href: '/services/ai-automation', label: 'AI & Automation' },
+];
+
+const company = [
+  { href: '/about', label: 'About' },
+  { href: '/methodology', label: 'Methodology' },
+  { href: '/cases', label: 'Case Studies' },
+  { href: '/insights', label: 'Insights' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+
+<footer class="bg-primary-900 text-neutral-400">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+      <!-- Brand -->
+      <div class="md:col-span-2">
+        <a href="/" class="font-heading font-bold text-2xl text-white">
+          <span class="text-accent-400">App</span>tualizate
+        </a>
+        <p class="mt-4 text-sm leading-relaxed max-w-sm">
+          We turn operational chaos into intelligent systems. Industrial engineering methodology meets AI-powered tools.
+        </p>
+        <div class="mt-6 flex gap-4">
+          <a href="https://linkedin.com/company/apptualizate" target="_blank" rel="noopener" class="hover:text-white transition-colors" aria-label="LinkedIn">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <h3 class="text-white font-heading font-semibold text-sm uppercase tracking-wider mb-4">Services</h3>
+        <ul class="space-y-2">
+          {services.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm hover:text-white transition-colors">{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <h3 class="text-white font-heading font-semibold text-sm uppercase tracking-wider mb-4">Company</h3>
+        <ul class="space-y-2">
+          {company.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm hover:text-white transition-colors">{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-primary-700 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-sm">© {currentYear} Apptualizate. All rights reserved.</p>
+      <a
+        href="/contact"
+        class="inline-flex items-center px-4 py-2 rounded-lg bg-accent-500 text-primary-900 text-sm font-medium hover:bg-accent-400 transition-colors"
+      >
+        Start Your Diagnostic →
+      </a>
+    </div>
+  </div>
+</footer>

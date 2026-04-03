@@ -1,0 +1,179 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import SectionHeader from '../components/ui/SectionHeader.astro';
+import ServiceCard from '../components/ui/ServiceCard.astro';
+import CTABanner from '../components/ui/CTABanner.astro';
+
+const services = [
+  {
+    phase: 1,
+    title: 'Operational Diagnostic',
+    description: 'Map your reality, identify bottlenecks, and build a prioritized transformation roadmap.',
+    href: '/services/diagnostic',
+    icon: '🔍',
+  },
+  {
+    phase: 2,
+    title: 'Process Design & Documentation',
+    description: 'Design your ideal-state processes and document them with ISO-grade precision.',
+    href: '/services/process-design',
+    icon: '📐',
+  },
+  {
+    phase: 3,
+    title: 'Digital Transformation',
+    description: 'Connect your tools, automate your workflows, and eliminate manual handoffs.',
+    href: '/services/digitalization',
+    icon: '⚡',
+  },
+  {
+    phase: 4,
+    title: 'Data & Business Intelligence',
+    description: 'Turn every digitalized process into real-time dashboards and actionable insights.',
+    href: '/services/intelligence',
+    icon: '📊',
+  },
+  {
+    phase: 5,
+    title: 'Ongoing Support & Evolution',
+    description: 'Continuous improvement cycles so your operation never stops getting better.',
+    href: '/services/continuous-support',
+    icon: '🔄',
+  },
+  {
+    title: 'AI & Intelligent Automation',
+    description: 'Embed AI into your workflows — from document processing to intelligent decision support.',
+    href: '/services/ai-automation',
+    icon: '🤖',
+  },
+];
+
+const pillars = [
+  {
+    icon: '🏗️',
+    title: 'Process Architecture',
+    body: 'We map your reality, design your ideal state, and document everything with ISO-grade precision. No more tribal knowledge or "ask Juan, he knows."',
+  },
+  {
+    icon: '🔌',
+    title: 'Tech Integration',
+    body: 'We connect your tools, automate your workflows, and eliminate manual handoffs. Your ERP talks to your CRM talks to your dashboards — seamlessly.',
+  },
+  {
+    icon: '📈',
+    title: 'Data-Driven Decisions',
+    body: 'Every process we digitalize generates data. We turn that data into real-time dashboards so you can stop guessing and start deciding.',
+  },
+];
+
+const metrics = [
+  { value: '40%', label: 'Average time saved in core processes' },
+  { value: '3x', label: 'Faster onboarding with documented SOPs' },
+  { value: '100%', label: 'Client retention after Phase 1' },
+];
+---
+
+<PageLayout
+  title="We Turn Operational Chaos Into Intelligent Systems"
+  description="Operational transformation consultancy combining industrial engineering with AI-powered tools. Diagnose, design, digitalize, and support your business transformation."
+>
+  <!-- Hero -->
+  <section class="relative bg-primary-900 overflow-hidden pt-20 pb-32">
+    <div class="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900"></div>
+    <div class="absolute top-0 right-0 w-1/2 h-full opacity-10">
+      <div class="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-accent-400 blur-3xl"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="inline-block text-xs font-semibold uppercase tracking-widest text-accent-400 mb-6">
+        Operational Transformation
+      </span>
+      <h1 class="text-white max-w-4xl mx-auto">
+        We Turn Operational Chaos Into<br/>
+        <span class="text-accent-400">Intelligent Systems</span>
+      </h1>
+      <p class="mt-6 text-xl text-neutral-300 max-w-2xl mx-auto leading-relaxed">
+        From undocumented processes and disconnected tools to a fully integrated, data-driven operation.
+        We diagnose, design, digitalize, and support your business transformation — powered by AI.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/contact"
+          class="inline-flex items-center px-8 py-4 rounded-xl bg-accent-500 text-primary-900 font-semibold text-lg hover:bg-accent-400 transition-colors w-full sm:w-auto justify-center"
+        >
+          Start Your Diagnostic →
+        </a>
+        <a
+          href="/services"
+          class="inline-flex items-center px-8 py-4 rounded-xl border border-white/20 text-white font-medium text-lg hover:bg-white/10 transition-colors w-full sm:w-auto justify-center"
+        >
+          Explore Our Services
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metrics strip -->
+  <section class="bg-white border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+        {metrics.map((m) => (
+          <div>
+            <div class="font-heading font-bold text-4xl text-primary-600">{m.value}</div>
+            <div class="mt-1 text-sm text-neutral-600">{m.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Services preview -->
+  <section class="py-24 bg-neutral-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeader
+        label="Our Services"
+        title="A Complete System. Not Just Another Tool."
+        subtitle="Five integrated phases plus transversal services — designed to transform your operation end-to-end."
+      />
+      <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((s) => (
+          <ServiceCard
+            title={s.title}
+            description={s.description}
+            href={s.href}
+            phase={s.phase}
+            icon={s.icon}
+          />
+        ))}
+      </div>
+      <div class="mt-10 text-center">
+        <a href="/services" class="inline-flex items-center text-primary-600 font-medium hover:text-primary-700 transition-colors">
+          View all services →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Proposition -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <SectionHeader
+        label="Why Apptualizate"
+        title="We Don't Sell Tools. We Build Systems."
+        subtitle="Most businesses don't need another SaaS subscription. They need someone to look at their operation end-to-end."
+      />
+      <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8">
+        {pillars.map((p) => (
+          <div class="text-center p-8 rounded-2xl bg-neutral-50 border border-neutral-200">
+            <div class="text-4xl mb-4">{p.icon}</div>
+            <h3 class="font-heading font-bold text-xl text-primary-900 mb-3">{p.title}</h3>
+            <p class="text-neutral-600 text-sm leading-relaxed">{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CTABanner />
+</PageLayout>

@@ -1,0 +1,31 @@
+---
+interface Props {
+  label?: string;
+  title: string;
+  subtitle?: string;
+  alignment?: 'left' | 'center';
+  light?: boolean;
+}
+
+const {
+  label,
+  title,
+  subtitle,
+  alignment = 'center',
+  light = false,
+} = Astro.props;
+
+const align = alignment === 'center' ? 'text-center' : 'text-left';
+---
+
+<div class={`${align} max-w-3xl ${alignment === 'center' ? 'mx-auto' : ''}`}>
+  {label && (
+    <span class={`inline-block text-xs font-semibold uppercase tracking-widest mb-3 ${light ? 'text-accent-400' : 'text-accent-500'}`}>
+      {label}
+    </span>
+  )}
+  <h2 class={light ? 'text-white' : 'text-primary-900'}>{title}</h2>
+  {subtitle && (
+    <p class={`mt-4 text-lg ${light ? 'text-neutral-300' : 'text-neutral-600'}`}>{subtitle}</p>
+  )}
+</div>
